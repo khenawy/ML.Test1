@@ -20,4 +20,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="IPS.Notifications.DTO">
+      <HintPath>..\DLLs\IPS.Notifications.DTO.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>
