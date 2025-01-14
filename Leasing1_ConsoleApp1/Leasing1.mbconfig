@@ -1,0 +1,335 @@
+﻿{
+  "Scenario": "Recommendation",
+  "DataSource": {
+    "Version": 3,
+    "EscapeCharacter": "\"",
+    "ReadMultiLines": false,
+    "KeepDiacritics": false,
+    "KeepPunctuations": false,
+    "AllowQuoting": false,
+    "Type": "TabularFile",
+    "FilePath": "C:\\Users\\khena\\Downloads\\Leasing1 - LeasingData1.tsv",
+    "Delimiter": "\t",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "Community Name",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Area",
+        "ColumnPurpose": "Item",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Unit Status",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Floor Plan",
+        "ColumnPurpose": "User",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Building Number",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Unit Number",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Sq Ft",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Available From",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Available To",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Amenities",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Lease Term",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Rent",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "MatrixFactorization",
+        "Score": 0.37587458777247323,
+        "RuntimeInSeconds": 3.054,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4",
+          "e0": {
+            "OutputColumnName": "Area",
+            "InputColumnName": "Area",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e1": {
+            "OutputColumnName": "Floor Plan",
+            "InputColumnName": "Floor Plan",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e2": {
+            "LabelColumnName": "Rent",
+            "MatrixColumnIndexColumnName": "Floor Plan",
+            "MatrixRowIndexColumnName": "Area",
+            "ApproximationRank": 15,
+            "LearningRate": 0.085314343338560139,
+            "NumberOfIterations": 72,
+            "Quiet": true
+          },
+          "e3": {
+            "OutputColumnName": "Floor Plan",
+            "InputColumnName": "Floor Plan"
+          },
+          "e4": {
+            "OutputColumnName": "Area",
+            "InputColumnName": "Area"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "MatrixFactorization",
+        "Score": 0.34295273862563191,
+        "RuntimeInSeconds": 3.623,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4",
+          "e0": {
+            "OutputColumnName": "Area",
+            "InputColumnName": "Area",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e1": {
+            "OutputColumnName": "Floor Plan",
+            "InputColumnName": "Floor Plan",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e2": {
+            "LabelColumnName": "Rent",
+            "MatrixColumnIndexColumnName": "Floor Plan",
+            "MatrixRowIndexColumnName": "Area",
+            "ApproximationRank": 15,
+            "LearningRate": 0.13073741273865411,
+            "NumberOfIterations": 89,
+            "Quiet": true
+          },
+          "e3": {
+            "OutputColumnName": "Floor Plan",
+            "InputColumnName": "Floor Plan"
+          },
+          "e4": {
+            "OutputColumnName": "Area",
+            "InputColumnName": "Area"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "MatrixFactorization",
+        "Score": 0.339555157149113,
+        "RuntimeInSeconds": 3.82,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4",
+          "e0": {
+            "OutputColumnName": "Area",
+            "InputColumnName": "Area",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e1": {
+            "OutputColumnName": "Floor Plan",
+            "InputColumnName": "Floor Plan",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e2": {
+            "LabelColumnName": "Rent",
+            "MatrixColumnIndexColumnName": "Floor Plan",
+            "MatrixRowIndexColumnName": "Area",
+            "ApproximationRank": 15,
+            "LearningRate": 0.049067869084444549,
+            "NumberOfIterations": 93,
+            "Quiet": true
+          },
+          "e3": {
+            "OutputColumnName": "Floor Plan",
+            "InputColumnName": "Floor Plan"
+          },
+          "e4": {
+            "OutputColumnName": "Area",
+            "InputColumnName": "Area"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "MatrixFactorization",
+        "Score": 0.31682338682298089,
+        "RuntimeInSeconds": 3.341,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4",
+          "e0": {
+            "OutputColumnName": "Area",
+            "InputColumnName": "Area",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e1": {
+            "OutputColumnName": "Floor Plan",
+            "InputColumnName": "Floor Plan",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e2": {
+            "LabelColumnName": "Rent",
+            "MatrixColumnIndexColumnName": "Floor Plan",
+            "MatrixRowIndexColumnName": "Area",
+            "ApproximationRank": 10,
+            "LearningRate": 0.040888639475465942,
+            "NumberOfIterations": 81,
+            "Quiet": true
+          },
+          "e3": {
+            "OutputColumnName": "Floor Plan",
+            "InputColumnName": "Floor Plan"
+          },
+          "e4": {
+            "OutputColumnName": "Area",
+            "InputColumnName": "Area"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "MatrixFactorization",
+        "Score": 0.31591661518798952,
+        "RuntimeInSeconds": 2.122,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4",
+          "e0": {
+            "OutputColumnName": "Area",
+            "InputColumnName": "Area",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e1": {
+            "OutputColumnName": "Floor Plan",
+            "InputColumnName": "Floor Plan",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e2": {
+            "LabelColumnName": "Rent",
+            "MatrixColumnIndexColumnName": "Floor Plan",
+            "MatrixRowIndexColumnName": "Area",
+            "ApproximationRank": 16,
+            "LearningRate": 0.058076282470826794,
+            "NumberOfIterations": 51,
+            "Quiet": true
+          },
+          "e3": {
+            "OutputColumnName": "Floor Plan",
+            "InputColumnName": "Floor Plan"
+          },
+          "e4": {
+            "OutputColumnName": "Area",
+            "InputColumnName": "Area"
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "MapValueToKey",
+      "e1": "MapValueToKey",
+      "e2": "MatrixFactorization",
+      "e3": "MapKeyToValue",
+      "e4": "MapKeyToValue"
+    },
+    "Schema": "e0 * e1 * e2 * e3 * e4",
+    "MetricName": "RSquared",
+    "ModelFilePath": "C:\\Users\\khena\\source\\repos\\ML.Test1\\MLTest1l_WebApi\\Leasing1.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 5,
+  "TrainingOption": {
+    "Version": 2,
+    "Subsampling": false,
+    "Type": "RecommendationTrainingOption",
+    "TrainingTime": 120,
+    "LabelColumn": "Rent",
+    "UserIdColumn": "Floor Plan",
+    "ItemIdColumn": "Area",
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "CrossValidationValidationOption",
+      "NumberOfFolds": 5
+    }
+  }
+}

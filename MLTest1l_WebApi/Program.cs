@@ -15,6 +15,8 @@ using MLTest1l_WebApi;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddPredictionEnginePool<MLTest1l.ModelInput, MLTest1l.ModelOutput>()
     .FromFile("MLTest1l.mlnet");
+builder.Services.AddPredictionEnginePool<Leasing1.ModelInput, Leasing1.ModelOutput>()
+    .FromFile("Leasing1.mlnet");
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllers();
@@ -52,7 +54,6 @@ app.UseSwagger();
 //        res.results.Add(new Result() { toolCallId = "", result = response.Score.ToString() });
 //        await Task.FromResult(res);
 //    });
-app.UseAuthorization();
 app.UseRouting();
 app.UseCors("AllowAll");
 app.UseEndpoints(endpoints =>
