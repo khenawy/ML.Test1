@@ -15,12 +15,13 @@ namespace MLTest1l_WebApi.Controllers
         {
             MLTest1l.ModelInput sampleData = new MLTest1l.ModelInput()
             {
-                Rate_code = 1,
-                Trip_distance = 10,
+                Rate_code = message.tool_calls[0].function.arguments.rate_code,
+                Trip_distance = message.tool_calls[0].function.arguments.trip_distance,
             };
 
+
             var predictionResult = MLTest1l.Predict(sampleData);
-            Result result = new Result() { toolCallId = "", result = predictionResult.Score.ToString() };
+            Result result = new Result() { toolCallId = message.tool_calls[0].id, result = predictionResult.Score.ToString() };
             List<Result> results = new List<Result>() { result };
             return results;
 
