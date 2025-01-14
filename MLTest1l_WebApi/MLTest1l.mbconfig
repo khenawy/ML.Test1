@@ -8,7 +8,7 @@
     "KeepPunctuations": false,
     "AllowQuoting": false,
     "Type": "TabularFile",
-    "FilePath": "C:\\Users\\khena\\Downloads\\taxi-fare-full.csv",
+    "FilePath": "C:\\Users\\Administrator\\Downloads\\taxi-fare-full.csv",
     "Delimiter": ",",
     "DecimalMarker": ".",
     "HasHeader": true,
@@ -41,7 +41,7 @@
         "ColumnName": "trip_time_in_secs",
         "ColumnPurpose": "Ignore",
         "ColumnDataFormat": "Single",
-        "IsCategorical": false,
+        "IsCategorical": true,
         "Type": "Column",
         "Version": 5
       },
@@ -83,8 +83,8 @@
         "Version": 1,
         "Type": "Trial",
         "TrainerName": "MatrixFactorization",
-        "Score": 0.79932071384938974,
-        "RuntimeInSeconds": 2.357,
+        "Score": 0.79627020338410581,
+        "RuntimeInSeconds": 2.26,
         "Parameter": {
           "_SCHEMA_": "e0 * e1 * e2 * e3 * e4",
           "e0": {
@@ -101,9 +101,9 @@
             "LabelColumnName": "fare_amount",
             "MatrixColumnIndexColumnName": "trip_distance",
             "MatrixRowIndexColumnName": "rate_code",
-            "ApproximationRank": 46,
-            "LearningRate": 0.19775172983505079,
-            "NumberOfIterations": 158,
+            "ApproximationRank": 15,
+            "LearningRate": 0.031495078874651174,
+            "NumberOfIterations": 375,
             "Quiet": true
           },
           "e3": {
@@ -120,8 +120,8 @@
         "Version": 1,
         "Type": "Trial",
         "TrainerName": "MatrixFactorization",
-        "Score": 0.79807397092260524,
-        "RuntimeInSeconds": 2.325,
+        "Score": 0.79574790804355122,
+        "RuntimeInSeconds": 3.002,
         "Parameter": {
           "_SCHEMA_": "e0 * e1 * e2 * e3 * e4",
           "e0": {
@@ -138,9 +138,9 @@
             "LabelColumnName": "fare_amount",
             "MatrixColumnIndexColumnName": "trip_distance",
             "MatrixRowIndexColumnName": "rate_code",
-            "ApproximationRank": 47,
-            "LearningRate": 0.3031936010133191,
-            "NumberOfIterations": 163,
+            "ApproximationRank": 15,
+            "LearningRate": 0.030234653730072995,
+            "NumberOfIterations": 383,
             "Quiet": true
           },
           "e3": {
@@ -157,8 +157,8 @@
         "Version": 1,
         "Type": "Trial",
         "TrainerName": "MatrixFactorization",
-        "Score": 0.79772046109428607,
-        "RuntimeInSeconds": 2.218,
+        "Score": 0.79533622968449935,
+        "RuntimeInSeconds": 1.916,
         "Parameter": {
           "_SCHEMA_": "e0 * e1 * e2 * e3 * e4",
           "e0": {
@@ -175,9 +175,9 @@
             "LabelColumnName": "fare_amount",
             "MatrixColumnIndexColumnName": "trip_distance",
             "MatrixRowIndexColumnName": "rate_code",
-            "ApproximationRank": 48,
-            "LearningRate": 0.19086476262087812,
-            "NumberOfIterations": 155,
+            "ApproximationRank": 14,
+            "LearningRate": 0.029680262541496125,
+            "NumberOfIterations": 366,
             "Quiet": true
           },
           "e3": {
@@ -194,8 +194,8 @@
         "Version": 1,
         "Type": "Trial",
         "TrainerName": "MatrixFactorization",
-        "Score": 0.79763212805503936,
-        "RuntimeInSeconds": 2.301,
+        "Score": 0.79507944927662,
+        "RuntimeInSeconds": 2.142,
         "Parameter": {
           "_SCHEMA_": "e0 * e1 * e2 * e3 * e4",
           "e0": {
@@ -212,9 +212,9 @@
             "LabelColumnName": "fare_amount",
             "MatrixColumnIndexColumnName": "trip_distance",
             "MatrixRowIndexColumnName": "rate_code",
-            "ApproximationRank": 44,
-            "LearningRate": 0.20488719927015628,
-            "NumberOfIterations": 160,
+            "ApproximationRank": 15,
+            "LearningRate": 0.031412525982127411,
+            "NumberOfIterations": 375,
             "Quiet": true
           },
           "e3": {
@@ -231,8 +231,8 @@
         "Version": 1,
         "Type": "Trial",
         "TrainerName": "MatrixFactorization",
-        "Score": 0.797047962304736,
-        "RuntimeInSeconds": 2.218,
+        "Score": 0.79498601788944434,
+        "RuntimeInSeconds": 1.96,
         "Parameter": {
           "_SCHEMA_": "e0 * e1 * e2 * e3 * e4",
           "e0": {
@@ -249,9 +249,9 @@
             "LabelColumnName": "fare_amount",
             "MatrixColumnIndexColumnName": "trip_distance",
             "MatrixRowIndexColumnName": "rate_code",
-            "ApproximationRank": 43,
-            "LearningRate": 0.18650568363646572,
-            "NumberOfIterations": 152,
+            "ApproximationRank": 15,
+            "LearningRate": 0.030301295683173819,
+            "NumberOfIterations": 396,
             "Quiet": true
           },
           "e3": {
@@ -274,7 +274,7 @@
     },
     "Schema": "e0 * e1 * e2 * e3 * e4",
     "MetricName": "RSquared",
-    "ModelFilePath": "C:\\Users\\khena\\source\\repos\\ML.Test1\\ML.Test1\\MLTest1l.mlnet"
+    "ModelFilePath": "C:\\Users\\Administrator\\source\\repos\\ML.Test1\\MLTest1l_WebApi\\MLTest1l.mlnet"
   },
   "Type": "TrainingConfig",
   "Version": 5,
@@ -282,7 +282,7 @@
     "Version": 2,
     "Subsampling": false,
     "Type": "RecommendationTrainingOption",
-    "TrainingTime": 60,
+    "TrainingTime": 120,
     "LabelColumn": "fare_amount",
     "UserIdColumn": "trip_distance",
     "ItemIdColumn": "rate_code",

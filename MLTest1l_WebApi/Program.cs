@@ -9,6 +9,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MLTest1l_WebApi.Models;
+using MLTest1l_WebApi;
 
 // Configure app
 var builder = WebApplication.CreateBuilder(args);

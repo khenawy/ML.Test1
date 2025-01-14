@@ -23,6 +23,7 @@ namespace MLTest1l_WebApi.Models
         public List<Result> results { get; set; }
     }
 
+    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
     public class Arguments
     {
         public int rate_code { get; set; }
@@ -32,69 +33,66 @@ namespace MLTest1l_WebApi.Models
     public class Artifact
     {
         public List<Message> messages { get; set; }
-        public List<MessagesOpenAIFormatted> messages_open_a_i_formatted { get; set; }
+        public List<MessagesOpenAIFormatted> messagesOpenAIFormatted { get; set; }
     }
 
     public class Assistant
     {
         public string id { get; set; }
-        public string org_id { get; set; }
+        public string orgId { get; set; }
         public string name { get; set; }
         public Voice voice { get; set; }
-        public DateTime created_at { get; set; }
-        public DateTime updated_at { get; set; }
+        public DateTime createdAt { get; set; }
+        public DateTime updatedAt { get; set; }
         public Model model { get; set; }
-        public bool recording_enabled { get; set; }
-        public string first_message { get; set; }
-        public string voicemail_message { get; set; }
-        public string end_call_message { get; set; }
+        public bool recordingEnabled { get; set; }
+        public string firstMessage { get; set; }
+        public string voicemailMessage { get; set; }
+        public string endCallMessage { get; set; }
         public Transcriber transcriber { get; set; }
-        public List<string> client_messages { get; set; }
-        public List<string> server_messages { get; set; }
-        public List<string> end_call_phrases { get; set; }
-        public bool backchanneling_enabled { get; set; }
-        public bool background_denoising_enabled { get; set; }
+        public List<string> clientMessages { get; set; }
+        public List<string> serverMessages { get; set; }
+        public List<string> endCallPhrases { get; set; }
+        public bool backchannelingEnabled { get; set; }
+        public bool backgroundDenoisingEnabled { get; set; }
     }
 
     public class AssistantOverrides
     {
-        public List<string> client_messages { get; set; }
+        public List<string> clientMessages { get; set; }
     }
 
     public class Call
     {
         public string id { get; set; }
-        public string org_id { get; set; }
-        public DateTime created_at { get; set; }
-        public DateTime updated_at { get; set; }
+        public string orgId { get; set; }
+        public DateTime createdAt { get; set; }
+        public DateTime updatedAt { get; set; }
         public string type { get; set; }
         public Monitor monitor { get; set; }
         public Transport transport { get; set; }
-        public string web_call_url { get; set; }
+        public string webCallUrl { get; set; }
         public string status { get; set; }
-        public string assistant_id { get; set; }
-        public AssistantOverrides assistant_overrides { get; set; }
+        public string assistantId { get; set; }
+        public AssistantOverrides assistantOverrides { get; set; }
     }
 
     public class Function
     {
         public string name { get; set; }
         public Arguments arguments { get; set; }
-        public bool async { get; set; }
-        public Parameters parameters { get; set; }
-        public string description { get; set; }
     }
 
     public class Message
     {
         public long timestamp { get; set; }
         public string type { get; set; }
-        public List<ToolCall> tool_calls { get; set; }
-        public List<ToolCallList> tool_call_list { get; set; }
-        public List<ToolWithToolCallList> tool_with_tool_call_list { get; set; }
+        public List<ToolCall> toolCalls { get; set; }
+        public List<ToolCallList> toolCallList { get; set; }
+        public List<ToolWithToolCallList> toolWithToolCallList { get; set; }
         //public Artifact artifact { get; set; }
-        //public Call call { get; set; }
-        //public Assistant assistant { get; set; }
+        public Call call { get; set; }
+        public Assistant assistant { get; set; }
     }
 
     public class Message2
@@ -103,16 +101,16 @@ namespace MLTest1l_WebApi.Models
         public string content { get; set; }
         public List<object> contents { get; set; }
         public List<object> conditions { get; set; }
-        public int? timing_milliseconds { get; set; }
-        public bool? end_call_after_spoken_enabled { get; set; }
+        public int? timingMilliseconds { get; set; }
+        public bool? endCallAfterSpokenEnabled { get; set; }
         public string role { get; set; }
         public string message { get; set; }
-        public double time { get; set; }
-        public double seconds_from_start { get; set; }
-        public double? end_time { get; set; }
+        public object time { get; set; }
+        public double secondsFromStart { get; set; }
+        public double? endTime { get; set; }
         public double? duration { get; set; }
         public string source { get; set; }
-        public List<ToolCall> tool_calls { get; set; }
+        public List<ToolCall> toolCalls { get; set; }
     }
 
     public class MessagesOpenAIFormatted
@@ -126,7 +124,7 @@ namespace MLTest1l_WebApi.Models
     public class Model
     {
         public string model { get; set; }
-        public List<string> tool_ids { get; set; }
+        public List<string> toolIds { get; set; }
         public List<Message> messages { get; set; }
         public string provider { get; set; }
         public double temperature { get; set; }
@@ -135,8 +133,8 @@ namespace MLTest1l_WebApi.Models
 
     public class Monitor
     {
-        public string listen_url { get; set; }
-        public string control_url { get; set; }
+        public string listenUrl { get; set; }
+        public string controlUrl { get; set; }
     }
 
     public class Parameters
@@ -164,18 +162,18 @@ namespace MLTest1l_WebApi.Models
     public class Server
     {
         public string url { get; set; }
-        public int timeout_seconds { get; set; }
+        public int timeoutSeconds { get; set; }
     }
 
     public class Tool
     {
         public string id { get; set; }
-        public DateTime created_at { get; set; }
-        public DateTime updated_at { get; set; }
+        public DateTime createdAt { get; set; }
+        public DateTime updatedAt { get; set; }
         public string type { get; set; }
         public Function function { get; set; }
         public List<Message> messages { get; set; }
-        public string org_id { get; set; }
+        public string orgId { get; set; }
         public Server server { get; set; }
         public bool async { get; set; }
     }
@@ -188,6 +186,13 @@ namespace MLTest1l_WebApi.Models
     }
 
     public class ToolCall2
+    {
+        public string id { get; set; }
+        public string type { get; set; }
+        public Function function { get; set; }
+    }
+
+    public class ToolCall4
     {
         public string id { get; set; }
         public string type { get; set; }
@@ -208,7 +213,7 @@ namespace MLTest1l_WebApi.Models
         public bool async { get; set; }
         public Server server { get; set; }
         public List<Message> messages { get; set; }
-        public ToolCall tool_call { get; set; }
+        public ToolCall toolCall { get; set; }
     }
 
     public class Transcriber
@@ -220,7 +225,7 @@ namespace MLTest1l_WebApi.Models
 
     public class Transport
     {
-        public bool assistant_video_enabled { get; set; }
+        public bool assistantVideoEnabled { get; set; }
     }
 
     public class TripDistance
@@ -231,8 +236,10 @@ namespace MLTest1l_WebApi.Models
     public class Voice
     {
         public string model { get; set; }
-        public string voice_id { get; set; }
+        public string voiceId { get; set; }
         public string provider { get; set; }
-        public bool filler_injection_enabled { get; set; }
+        public bool fillerInjectionEnabled { get; set; }
     }
+
+
 }

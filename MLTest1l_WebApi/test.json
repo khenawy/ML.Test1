@@ -1,34 +1,34 @@
 {
   "message": {
-    "timestamp": 1736818022167,
+    "timestamp": 1736826817752,
     "type": "tool-calls",
-    "tool_calls": [
+    "toolCalls": [
       {
-        "id": "call_s4MeUPovytJT72av4yfaFPTG",
+        "id": "call_kFILZgQ99Rxbev3us0Ft3iRU",
         "type": "function",
         "function": {
           "name": "predict",
           "arguments": {
-            "rate_code": 1,
-            "trip_distance": 10
+            "rate_code": 2,
+            "trip_distance": 7
           }
         }
       }
     ],
-    "tool_call_list": [
+    "toolCallList": [
       {
-        "id": "call_s4MeUPovytJT72av4yfaFPTG",
+        "id": "call_kFILZgQ99Rxbev3us0Ft3iRU",
         "type": "function",
         "function": {
           "name": "predict",
           "arguments": {
-            "rate_code": 1,
-            "trip_distance": 10
+            "rate_code": 2,
+            "trip_distance": 7
           }
         }
       }
     ],
-    "tool_with_tool_call_list": [
+    "toolWithToolCallList": [
       {
         "type": "function",
         "function": {
@@ -37,12 +37,8 @@
           "parameters": {
             "type": "object",
             "properties": {
-              "rate_code": {
-                "type": "number"
-              },
-              "trip_distance": {
-                "type": "number"
-              }
+              "rate_code": { "type": "number" },
+              "trip_distance": { "type": "number" }
             }
           },
           "description": "tell the user the taxi fare amount for a trip"
@@ -50,7 +46,7 @@
         "async": false,
         "server": {
           "url": "https://freemypalestine.com/predict",
-          "timeout_seconds": 30
+          "timeoutSeconds": 30
         },
         "messages": [
           {
@@ -64,14 +60,14 @@
             "content": "Please wait for taxi fare...",
             "conditions": [],
             "contents": [],
-            "timing_milliseconds": 0
+            "timingMilliseconds": 0
           },
           {
             "type": "request-complete",
             "content": "The taxi fare is",
             "contents": [],
             "conditions": [],
-            "end_call_after_spoken_enabled": false,
+            "endCallAfterSpokenEnabled": false,
             "role": "assistant"
           },
           {
@@ -79,17 +75,17 @@
             "content": "Sorry, can you try again later",
             "conditions": [],
             "contents": [],
-            "end_call_after_spoken_enabled": false
+            "endCallAfterSpokenEnabled": false
           }
         ],
-        "tool_call": {
-          "id": "call_s4MeUPovytJT72av4yfaFPTG",
+        "toolCall": {
+          "id": "call_kFILZgQ99Rxbev3us0Ft3iRU",
           "type": "function",
           "function": {
             "name": "predict",
             "arguments": {
-              "rate_code": 1,
-              "trip_distance": 10
+              "rate_code": 2,
+              "trip_distance": 7
             }
           }
         }
@@ -100,44 +96,44 @@
         {
           "role": "system",
           "message": "You job is to tell the user the taxi fare amount for a trip\n\nuse tool called \"predict\"",
-          "time": 1736818008781,
-          "seconds_from_start": 0
+          "time": 1736826802091,
+          "secondsFromStart": 0
         },
         {
           "role": "bot",
           "message": "Hello. This is Eva. How may I assist you today?",
-          "time": 1736818010357.441,
-          "end_time": 1736818013223.1902,
-          "seconds_from_start": 1.305441,
-          "duration": 2379.621337890625,
+          "time": 1736826803440,
+          "endTime": 1736826806413.571,
+          "secondsFromStart": 1.0799999,
+          "duration": 2024.999755859375,
           "source": ""
         },
         {
           "role": "user",
-          "message": "Can you tell me what's the the taxi fare amount for a trip that's 10 miles, and the read code is 1.",
-          "time": 1736818013856.4824,
-          "end_time": 1736818020835.947,
-          "seconds_from_start": 4.8044825,
-          "duration": 6860.7802734375
+          "message": "Can you give me the tax fair amount for a 7 mile trip for rate code 2",
+          "time": 1736826806860,
+          "endTime": 1736826812030,
+          "secondsFromStart": 4.5,
+          "duration": 5010.715087890625
         },
         {
-          "tool_calls": [
+          "toolCalls": [
             {
-              "id": "call_s4MeUPovytJT72av4yfaFPTG",
+              "id": "call_kFILZgQ99Rxbev3us0Ft3iRU",
               "type": "function",
               "function": {
                 "name": "predict",
-                "arguments": "{\"rate_code\": 1, \"trip_distance\": 10}"
+                "arguments": "{\"rate_code\": 2, \"trip_distance\": 7}"
               }
             }
           ],
           "role": "tool_calls",
           "message": "",
-          "time": 1736818022165,
-          "seconds_from_start": 11.935
+          "time": 1736826817750,
+          "secondsFromStart": 10.407
         }
       ],
-      "messages_open_a_i_formatted": [
+      "messagesOpenAIFormatted": [
         {
           "role": "system",
           "content": "You job is to tell the user the taxi fare amount for a trip\n\nuse tool called \"predict\""
@@ -148,68 +144,59 @@
         },
         {
           "role": "user",
-          "content": "Can you tell me what's the the taxi fare amount for a trip that's 10 miles, and the read code is 1."
+          "content": "Can you give me the tax fair amount for a 7 mile trip for rate code 2"
         },
         {
           "role": "assistant",
           "tool_calls": [
             {
-              "id": "call_s4MeUPovytJT72av4yfaFPTG",
+              "id": "call_kFILZgQ99Rxbev3us0Ft3iRU",
               "type": "function",
               "function": {
                 "name": "predict",
-                "arguments": "{\"rate_code\": 1, \"trip_distance\": 10}"
+                "arguments": "{\"rate_code\": 2, \"trip_distance\": 7}"
               }
             }
           ]
         },
         {
           "role": "tool",
-          "tool_call_id": "call_s4MeUPovytJT72av4yfaFPTG",
+          "tool_call_id": "call_kFILZgQ99Rxbev3us0Ft3iRU",
           "content": "Tool Result Still Pending But Proceed Further If Possible."
         }
       ]
     },
     "call": {
-      "id": "b968a45b-8293-445c-85eb-209fb125ea19",
-      "org_id": "cbd1ebd9-ea32-4953-986d-a936acbcf242",
-      "created_at": "2025-01-14T01:26:48.501Z",
-      "updated_at": "2025-01-14T01:26:48.501Z",
+      "id": "3cdd9378-6d61-4159-bbf0-49a212e9665a",
+      "orgId": "cbd1ebd9-ea32-4953-986d-a936acbcf242",
+      "createdAt": "2025-01-14T03:53:21.809Z",
+      "updatedAt": "2025-01-14T03:53:21.809Z",
       "type": "webCall",
       "monitor": {
-        "listen_url": "wss://phone-call-websocket.aws-us-west-2-backend-production3.vapi.ai/b968a45b-8293-445c-85eb-209fb125ea19/listen",
-        "control_url": "https://phone-call-websocket.aws-us-west-2-backend-production3.vapi.ai/b968a45b-8293-445c-85eb-209fb125ea19/control"
+        "listenUrl": "wss://phone-call-websocket.aws-us-west-2-backend-production1.vapi.ai/3cdd9378-6d61-4159-bbf0-49a212e9665a/listen",
+        "controlUrl": "https://phone-call-websocket.aws-us-west-2-backend-production1.vapi.ai/3cdd9378-6d61-4159-bbf0-49a212e9665a/control"
       },
-      "transport": {
-        "assistant_video_enabled": false
-      },
-      "web_call_url": "https://vapi.daily.co/z7PFoys3dckPJh9YTZc4",
+      "transport": { "assistantVideoEnabled": false },
+      "webCallUrl": "https://vapi.daily.co/At6CHEgMBooxNToh0GRa",
       "status": "queued",
-      "assistant_id": "f1d1adae-5592-4e7e-bb6b-4b2a6a8a35f0",
-      "assistant_overrides": {
-        "client_messages": [
-          "transfer-update",
-          "transcript"
-        ]
-      }
+      "assistantId": "f1d1adae-5592-4e7e-bb6b-4b2a6a8a35f0",
+      "assistantOverrides": { "clientMessages": [ "transfer-update", "transcript" ] }
     },
     "assistant": {
       "id": "f1d1adae-5592-4e7e-bb6b-4b2a6a8a35f0",
-      "org_id": "cbd1ebd9-ea32-4953-986d-a936acbcf242",
+      "orgId": "cbd1ebd9-ea32-4953-986d-a936acbcf242",
       "name": "Leasing AI",
       "voice": {
         "model": "sonic-english",
-        "voice_id": "248be419-c632-4f23-adf1-5324ed7dbf1d",
+        "voiceId": "248be419-c632-4f23-adf1-5324ed7dbf1d",
         "provider": "cartesia",
-        "filler_injection_enabled": false
+        "fillerInjectionEnabled": false
       },
-      "created_at": "2025-01-13T16:18:09.695Z",
-      "updated_at": "2025-01-14T01:26:43.822Z",
+      "createdAt": "2025-01-13T16:18:09.695Z",
+      "updatedAt": "2025-01-14T03:35:31.732Z",
       "model": {
-        "model": "gpt-4o",
-        "tool_ids": [
-          "2bf9b619-e634-4ba9-b581-10ce043db7cc"
-        ],
+        "model": "gpt-3.5-turbo",
+        "toolIds": [ "2bf9b619-e634-4ba9-b581-10ce043db7cc" ],
         "messages": [
           {
             "role": "system",
@@ -221,8 +208,8 @@
         "tools": [
           {
             "id": "2bf9b619-e634-4ba9-b581-10ce043db7cc",
-            "created_at": "2025-01-13T19:16:16.557Z",
-            "updated_at": "2025-01-14T01:26:17.435Z",
+            "createdAt": "2025-01-13T19:16:16.557Z",
+            "updatedAt": "2025-01-14T02:55:04.244Z",
             "type": "function",
             "function": {
               "name": "predict",
@@ -230,12 +217,8 @@
               "parameters": {
                 "type": "object",
                 "properties": {
-                  "rate_code": {
-                    "type": "number"
-                  },
-                  "trip_distance": {
-                    "type": "number"
-                  }
+                  "rate_code": { "type": "number" },
+                  "trip_distance": { "type": "number" }
                 }
               },
               "description": "tell the user the taxi fare amount for a trip"
@@ -259,39 +242,29 @@
                 "content": "Sorry, can you try again later"
               }
             ],
-            "org_id": "cbd1ebd9-ea32-4953-986d-a936acbcf242",
+            "orgId": "cbd1ebd9-ea32-4953-986d-a936acbcf242",
             "server": {
               "url": "https://freemypalestine.com/predict",
-              "timeout_seconds": 30
+              "timeoutSeconds": 30
             },
             "async": false
           }
         ]
       },
-      "recording_enabled": true,
-      "first_message": "Hello, this is Ava. How may I assist you today?",
-      "voicemail_message": "Hey, this is Ava. Could you please call me back when you're free?",
-      "end_call_message": "Thank you for contacting us. Have a great day!",
+      "recordingEnabled": true,
+      "firstMessage": "Hello, this is Ava. How may I assist you today?",
+      "voicemailMessage": "Hey, this is Ava. Could you please call me back when you're free?",
+      "endCallMessage": "Thank you for contacting us. Have a great day!",
       "transcriber": {
         "model": "general",
         "language": "en",
         "provider": "deepgram"
       },
-      "client_messages": [
-        "conversation-update",
-        "function-call",
-        "transfer-update",
-        "transcript"
-      ],
-      "server_messages": [
-        "hang",
-        "model-output"
-      ],
-      "end_call_phrases": [
-        "goodbye"
-      ],
-      "backchanneling_enabled": false,
-      "background_denoising_enabled": false
+      "clientMessages": [ "conversation-update", "function-call", "transfer-update", "transcript" ],
+      "serverMessages": [ "hang", "model-output" ],
+      "endCallPhrases": [ "goodbye" ],
+      "backchannelingEnabled": false,
+      "backgroundDenoisingEnabled": false
     }
   }
 }

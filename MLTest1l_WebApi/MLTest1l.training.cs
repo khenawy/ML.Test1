@@ -8,9 +8,12 @@ using System.Threading.Tasks;
 using Microsoft.ML;
 using Microsoft.ML.Data;
 using Microsoft.ML.Trainers;
+
+namespace MLTest1l_WebApi
+{
     public partial class MLTest1l
     {
-        public const string RetrainFilePath =  @"C:\Users\khena\Downloads\taxi-fare-full.csv";
+        public const string RetrainFilePath =  @"C:\Users\Administrator\Downloads\taxi-fare-full.csv";
         public const char RetrainSeparatorChar = ',';
         public const bool RetrainHasHeader =  true;
         public const bool RetrainAllowQuoting =  false;
@@ -88,11 +91,11 @@ using Microsoft.ML.Trainers;
             // Data process configuration with pipeline data transformations
             var pipeline = mlContext.Transforms.Conversion.MapValueToKey(outputColumnName:@"rate_code",inputColumnName:@"rate_code",addKeyValueAnnotationsAsText:false)      
                                     .Append(mlContext.Transforms.Conversion.MapValueToKey(outputColumnName:@"trip_distance",inputColumnName:@"trip_distance",addKeyValueAnnotationsAsText:false))      
-                                    .Append(mlContext.Recommendation().Trainers.MatrixFactorization(new MatrixFactorizationTrainer.Options(){LabelColumnName=@"fare_amount",MatrixColumnIndexColumnName=@"trip_distance",MatrixRowIndexColumnName=@"rate_code",ApproximationRank=46,LearningRate=0.1977517298350508,NumberOfIterations=158,Quiet=true}))      
+                                    .Append(mlContext.Recommendation().Trainers.MatrixFactorization(new MatrixFactorizationTrainer.Options(){LabelColumnName=@"fare_amount",MatrixColumnIndexColumnName=@"trip_distance",MatrixRowIndexColumnName=@"rate_code",ApproximationRank=15,LearningRate=0.031495078874651174,NumberOfIterations=375,Quiet=true}))      
                                     .Append(mlContext.Transforms.Conversion.MapKeyToValue(outputColumnName:@"trip_distance",inputColumnName:@"trip_distance"))      
                                     .Append(mlContext.Transforms.Conversion.MapKeyToValue(outputColumnName:@"rate_code",inputColumnName:@"rate_code"));
 
             return pipeline;
         }
     }
- 
+ }
