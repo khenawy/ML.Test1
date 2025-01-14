@@ -8,9 +8,6 @@ using System.Threading.Tasks;
 using Microsoft.ML;
 using Microsoft.ML.Data;
 using Microsoft.ML.Trainers;
-
-namespace ML_Test1
-{
     public partial class MLTest1l
     {
         public const string RetrainFilePath =  @"C:\Users\khena\Downloads\taxi-fare-full.csv";
@@ -98,4 +95,4 @@ namespace ML_Test1
             return pipeline;
         }
     }
- }
+ 

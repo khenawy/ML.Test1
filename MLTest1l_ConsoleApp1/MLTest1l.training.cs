@@ -9,7 +9,7 @@ using Microsoft.ML;
 using Microsoft.ML.Data;
 using Microsoft.ML.Trainers;
 
-namespace ML_Test1
+namespace MLTest1l_ConsoleApp1
 {
     public partial class MLTest1l
     {

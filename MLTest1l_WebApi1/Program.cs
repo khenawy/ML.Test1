@@ -7,8 +7,6 @@ using Microsoft.ML.Data;
 using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using MLTest1l_WebApi.Models;
 
 // Configure app
 var builder = WebApplication.CreateBuilder(args);
@@ -16,7 +14,6 @@ builder.Services.AddPredictionEnginePool<MLTest1l.ModelInput, MLTest1l.ModelOutp
     .FromFile("MLTest1l.mlnet");
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddControllers();
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -35,27 +32,17 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-// Define prediction route & handler
-//app.MapPost("/predict",
-//    async (PredictionEnginePool<MLTest1l.ModelInput, MLTest1l.ModelOutput> predictionEnginePool, MLTest1l.ModelInput input) =>
-//    {
-//        MLTest1l.ModelInput sampleData = new MLTest1l.ModelInput()
-//        {
-//            Rate_code = 1F,
-//            Trip_distance = 1.5F,
-//        };
 
-//        MLTest1l.ModelOutput response = predictionEnginePool.Predict(input);
-//        ApiResults res = new ApiResults();
-//        res.results = new List<Result>();
-//        res.results.Add(new Result() { toolCallId = "", result = response.Score.ToString() });
-//        await Task.FromResult(res);
-//    });
-app.UseRouting();
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-});
+// Define prediction route & handler
+app.MapPost("/predict",
+    async (PredictionEnginePool<MLTest1l.ModelInput, MLTest1l.ModelOutput> predictionEnginePool, MLTest1l.ModelInput input) => {
+
+        MLTest1l mLTest1L = new MLTest1l();
+        mLTest1L.pre
+        await Task.FromResult(predictionEnginePool.Predict(input))
+
+
+        });
 
 // Run app
 app.Run();
