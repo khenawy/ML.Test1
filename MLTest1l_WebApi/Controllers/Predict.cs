@@ -47,40 +47,26 @@ namespace MLTest1l_WebApi.Controllers
                 return apiResults;
             }
 
-            if (message.message.toolCalls.Count > 0)
+            MLTest1l.ModelInput sampleData = new MLTest1l.ModelInput()
             {
-                MLTest1l.ModelInput sampleData = new MLTest1l.ModelInput()
-                {
-                    Rate_code = message.message.toolCalls[0].function.arguments.rate_code,
-                    Trip_distance = message.message.toolCalls[0].function.arguments.trip_distance,
-                };
+                Rate_code = message.message.toolCalls[0].function.arguments.rate_code,
+                Trip_distance = message.message.toolCalls[0].function.arguments.trip_distance,
+            };
 
-                var predictionResult = MLTest1l.Predict(sampleData);
-                apiResults.results.Add(new Result()
-                {
-                    Fare_amount = (float)Convert.ToDecimal(predictionResult.Score.ToString()),
-                    Rate_code = message.message.toolCalls[0].function.arguments.rate_code,
-                    Trip_distance = message.message.toolCalls[0].function.arguments.trip_distance,
-                    toolCallId = message.message.toolCalls[0].id,
-                    result = Math.Round(predictionResult.Score).ToString()
-                });
-            }
-            System.IO.File.WriteAllText($"C:\\khaled\\{DateTime.Now.ToString("MM-dd-yyyy-hh-mm-ss")}.txt", json);
+            var predictionResult = MLTest1l.Predict(sampleData);
+            apiResults.results.Add(new Result()
+            {
+                Fare_amount = (float)Convert.ToDecimal(predictionResult.Score.ToString()),
+                Rate_code = message.message.toolCalls[0].function.arguments.rate_code,
+                Trip_distance = message.message.toolCalls[0].function.arguments.trip_distance,
+                toolCallId = message.message.toolCalls[0].id,
+                result = Math.Round(predictionResult.Score).ToString()
+            });
 
-            json = JsonConvert.SerializeObject(apiResults);
-            System.IO.File.WriteAllText($"C:\\khaled\\{DateTime.Now.ToString("MM-dd-yyyy-hh-mm-ss-1")}.txt", json);
+            //System.IO.File.WriteAllText($"C:\\khaled\\{DateTime.Now.ToString("MM-dd-yyyy-hh-mm-ss")}.txt", json);
 
-            //MLTest1l.ModelInput sampleData = new MLTest1l.ModelInput()
-            //{
-            //    Rate_code = 1,
-            //    Trip_distance = 10,
-            //};
-
-
-            //var predictionResult = MLTest1l.Predict(sampleData);
-            //Result result = new Result() { toolCallId = "", result = predictionResult.Score.ToString() };
-
-            //apiResults.results.Add(result);
+            //json = JsonConvert.SerializeObject(apiResults);
+            //System.IO.File.WriteAllText($"C:\\khaled\\{DateTime.Now.ToString("MM-dd-yyyy-hh-mm-ss-1")}.txt", json);
             return apiResults;
 
         }
