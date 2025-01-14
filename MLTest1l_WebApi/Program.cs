@@ -51,7 +51,9 @@ app.UseSwagger();
 //        res.results.Add(new Result() { toolCallId = "", result = response.Score.ToString() });
 //        await Task.FromResult(res);
 //    });
+app.UseAuthorization();
 app.UseRouting();
+app.UseCors("AllowAll");
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();

@@ -92,9 +92,9 @@ namespace MLTest1l_WebApi.Models
         public List<ToolCall> tool_calls { get; set; }
         public List<ToolCallList> tool_call_list { get; set; }
         public List<ToolWithToolCallList> tool_with_tool_call_list { get; set; }
-        public Artifact artifact { get; set; }
-        public Call call { get; set; }
-        public Assistant assistant { get; set; }
+        //public Artifact artifact { get; set; }
+        //public Call call { get; set; }
+        //public Assistant assistant { get; set; }
     }
 
     public class Message2
