@@ -12,8 +12,10 @@ namespace MLTest1l_WebApi.Controllers
     public class Rent : Controller
     {
         [HttpPost]
-        public async Task<RentResults> RentAsync([FromBody] RentRoot message)
+        public async Task<RentResults> RentAsync([FromBody] object message)
         {
+            System.IO.File.WriteAllText($"C:\\khaled\\{DateTime.Now.ToString("MM-dd-yyyy-hh-mm-ss")}.txt", message.ToString());
+
             RentResults apiResults = new RentResults();
             apiResults.results = new List<RentResult>();
 
@@ -26,8 +28,10 @@ namespace MLTest1l_WebApi.Controllers
                 return apiResults;
             }
 
+            RentRoot rentRoot = new RentRoot();
             try
             {
+                rentRoot = JsonConvert.DeserializeObject<RentRoot>(message.ToString());
                 json = JsonConvert.SerializeObject(message);
             }
             catch (Exception ex)
@@ -37,9 +41,9 @@ namespace MLTest1l_WebApi.Controllers
                 return apiResults;
             }
 
-            if (message.message == null || message.message.toolCalls == null ||
-                message.message.toolCalls.Count <= 0 ||
-                message.message.toolCalls[0].function.arguments is null)
+            if (rentRoot.message == null || rentRoot.message.toolCalls == null ||
+                rentRoot.message.toolCalls.Count <= 0 ||
+                rentRoot.message.toolCalls[0].function.arguments is null)
             {
                 json += $"input_null";
                 apiResults.results.Add(new RentResult() { toolCallId = "input_null", result = "" });
@@ -49,16 +53,16 @@ namespace MLTest1l_WebApi.Controllers
 
             Leasing1.ModelInput sampleData = new Leasing1.ModelInput()
             {
-                Area = message.message.toolCalls[0].function.arguments.area,
-                Floor_Plan = message.message.toolCalls[0].function.arguments.floor_plan,
+                Area = rentRoot.message.toolCalls[0].function.arguments.area,
+                Floor_Plan = rentRoot.message.toolCalls[0].function.arguments.floor_plan,
             };
 
             var predictionResult = Leasing1.Predict(sampleData);
             apiResults.results.Add(new RentResult()
             {
-                Area = message.message.toolCalls[0].function.arguments.area,
-                Floor_Plan = message.message.toolCalls[0].function.arguments.floor_plan,
-                toolCallId = message.message.toolCalls[0].id,
+                Area = rentRoot.message.toolCalls[0].function.arguments.area,
+                Floor_Plan = rentRoot.message.toolCalls[0].function.arguments.floor_plan,
+                toolCallId = rentRoot.message.toolCalls[0].id,
                 result = Math.Round(predictionResult.Score).ToString()
             });
 
