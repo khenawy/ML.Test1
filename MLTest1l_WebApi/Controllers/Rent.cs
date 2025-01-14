@@ -51,6 +51,12 @@ namespace MLTest1l_WebApi.Controllers
                 return apiResults;
             }
 
+            string area = rentRoot.message.toolCalls[0].function.arguments.area;
+            string floor_plan = rentRoot.message.toolCalls[0].function.arguments.floor_plan;
+
+            //clean up
+            area = area.Replace(",", "").Replace(" SD ", " San Diego ");
+            floor_plan = floor_plan.Replace("bedrooms", "bedroom");
             Leasing1.ModelInput sampleData = new Leasing1.ModelInput()
             {
                 Area = rentRoot.message.toolCalls[0].function.arguments.area,

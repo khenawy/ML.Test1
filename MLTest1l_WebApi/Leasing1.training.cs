@@ -13,7 +13,7 @@ namespace MLTest1l_WebApi
 {
     public partial class Leasing1
     {
-        public const string RetrainFilePath =  @"C:\Users\khena\Downloads\Leasing1 - LeasingData1.tsv";
+        public const string RetrainFilePath =  @"C:\Users\Administrator\Downloads\Leasing1 - LeasingData1.tsv";
         public const char RetrainSeparatorChar = '	';
         public const bool RetrainHasHeader =  true;
         public const bool RetrainAllowQuoting =  false;
@@ -91,7 +91,7 @@ namespace MLTest1l_WebApi
             // Data process configuration with pipeline data transformations
             var pipeline = mlContext.Transforms.Conversion.MapValueToKey(outputColumnName:@"Area",inputColumnName:@"Area",addKeyValueAnnotationsAsText:false)      
                                     .Append(mlContext.Transforms.Conversion.MapValueToKey(outputColumnName:@"Floor Plan",inputColumnName:@"Floor Plan",addKeyValueAnnotationsAsText:false))      
-                                    .Append(mlContext.Recommendation().Trainers.MatrixFactorization(new MatrixFactorizationTrainer.Options(){LabelColumnName=@"Rent",MatrixColumnIndexColumnName=@"Floor Plan",MatrixRowIndexColumnName=@"Area",ApproximationRank=15,LearningRate=0.08531434333856014,NumberOfIterations=72,Quiet=true}))      
+                                    .Append(mlContext.Recommendation().Trainers.MatrixFactorization(new MatrixFactorizationTrainer.Options(){LabelColumnName=@"Rent",MatrixColumnIndexColumnName=@"Floor Plan",MatrixRowIndexColumnName=@"Area",ApproximationRank=12,LearningRate=0.18269816591219606,NumberOfIterations=83,Quiet=true}))      
                                     .Append(mlContext.Transforms.Conversion.MapKeyToValue(outputColumnName:@"Floor Plan",inputColumnName:@"Floor Plan"))      
                                     .Append(mlContext.Transforms.Conversion.MapKeyToValue(outputColumnName:@"Area",inputColumnName:@"Area"));
 
