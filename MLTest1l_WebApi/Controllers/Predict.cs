@@ -11,12 +11,12 @@ namespace MLTest1l_WebApi.Controllers
     {
         [HttpPost]
         [Route("predict")]
-        public async Task<List<Result>> PredictAsync([FromQuery] MLTest1l.ModelInput input)
+        public async Task<List<Result>> PredictAsync(Message message)
         {
             MLTest1l.ModelInput sampleData = new MLTest1l.ModelInput()
             {
-                Rate_code = input.Rate_code,
-                Trip_distance = input.Trip_distance,
+                Rate_code = 1,
+                Trip_distance = 10,
             };
 
             var predictionResult = MLTest1l.Predict(sampleData);
